@@ -15,5 +15,5 @@ Foi proposto a conversão de Real para outras moedas como, Dolar, Euro, Libras E
 <br>
 <br>
 
-<img src= "https://1drv.ms/i/c/e8f3d2650b35f29a/EU2WLwBYiaFCuJFW9b3kOqkBwrXli5EcQKu7rVaHe24SuQ?e=hBsJek">
+<img src= "C:\Users\User\Desktop\DevClub\Primeiro projeto JS\2025-03-05.png">
 
