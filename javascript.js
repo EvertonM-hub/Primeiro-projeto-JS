@@ -41,7 +41,7 @@ console.log(currencySelect.value)
     if (currencySelect.value == "bitcoin"){  //Se o select estiver selecionado Bitcoin, entre aqui
         currencyValueConverted .innerHTML = new Intl.NumberFormat("en-US" , {
             style:"currency",
-            currency: "XBT"
+            currency: "BTC"
         })  .format(inputCurrencyValue / bitcoinToday)
     
     }
@@ -77,7 +77,7 @@ function changeCurrency() {
 
    if (currencySelect.value == "bitcoin"){
     currencyName.innerHTML = "Bitcoin"
-    currencyImage.src = "assets/bitcoin 1.png"
+    currencyImage.src = "./assets/bitcoin 1.png"
    }
 
 
