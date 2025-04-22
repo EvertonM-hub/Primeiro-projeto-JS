@@ -1,0 +1,79 @@
+  //const data = await fatch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,BRL-GBP").then(response => response.json()) 
+        
+
+  //     console.log(data)   
+
+  //    async function getData() {
+     // const url = "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,BRL-GBP";
+     // try {
+        //const response = await fetch(url);
+        //if (!response.ok) {
+          //throw new Error(`Response status: ${response.status}`);
+       // }
+  
+        //const json = await response.json();
+        //console.log(json);
+      //} catch (error) {
+       // console.error(error.message);
+     // }
+
+
+     //const convertValues = async () => {
+    const inputCurrencyValue = document.querySelector(".input-currency").value
+    const currencyValueToConvert = document.querySelector(".currency-value-to-convert")
+    const currencyValueConverted = document.querySelector(".currency-value")
+
+    const url = "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL,GBP-BRL"
+
+    try {
+        const response = await fetch(url)
+        const data = await response.json()
+
+        const dolar = data.USDBRL.high
+        const euro = data.EURBRL.high
+       // const libra = data.GBPBRL.high
+        const bitcoin = data.BTCBRL.high
+
+        let convertedValue = 0
+
+        if (currencySelect.value === "dolar") {
+            convertedValue = inputCurrencyValue / dolar
+            currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD"
+            }).format(convertedValue)
+        }
+
+        if (currencySelect.value === "euro") {
+            convertedValue = inputCurrencyValue / euro
+            currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: "EUR"
+            }).format(convertedValue)
+        }
+
+        if (currencySelect.value === "libra") {
+            convertedValue = inputCurrencyValue / libra
+            currencyValueConverted.innerHTML = new Intl.NumberFormat("en-UK", {
+                style: "currency",
+                currency: "GBP"
+            }).format(convertedValue)
+        }
+
+        if (currencySelect.value === "bitcoin") {
+            convertedValue = inputCurrencyValue / bitcoin
+            currencyValueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "BTC",
+                maximumFractionDigits: 8
+            }).format(convertedValue)
+        }
+
+        currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(inputCurrencyValue)
+    } catch (error) {
+        console.error("Erro ao buscar dados da API:", error.message)
+    }
+}
